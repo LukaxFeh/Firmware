@@ -107,4 +107,11 @@ else
 	lsm303d start
 fi
 
+if [EKF2_RNG_AID == 1]
+then
+	if vl53lxx start
+	then 
+		echo "ERROR [init] no LIDAR firmware"
+fi
+
 unset BOARD_FMUV3

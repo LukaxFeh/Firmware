@@ -66,11 +66,11 @@ class atomic
 {
 public:
 
-#ifdef __PX4_NUTTX
+//#ifdef __PX4_NUTTX
 	// Ensure that all operations are lock-free, so that 'atomic' can be used from
 	// IRQ handlers. This might not be required everywhere though.
-	static_assert(__atomic_always_lock_free(sizeof(T), 0), "atomic is not lock-free for the given type T");
-#endif
+//	static_assert(__atomic_always_lock_free(sizeof(T), 0), "atomic is not lock-free for the given type T");
+//#endif
 
 
 	explicit atomic(T value) : _value(value) {}

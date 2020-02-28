@@ -95,12 +95,12 @@ bool KalmanFilter::update(float meas, float measUnc)
 	_innovCov = _covariance(0, 0) + measUnc;
 
 	// outlier rejection
-	float beta = _residual / _innovCov * _residual;
+	// float beta = _residual / _innovCov * _residual;
 
-	// 5% false alarm probability
-	if (beta > 3.84f) {
-		return false;
-	}
+	// // 5% false alarm probability
+	// if (beta > 3.84f) {
+	// 	return false;
+	// } debug
 
 	matrix::Vector<float, 2> kalmanGain;
 	kalmanGain(0) = _covariance(0, 0);

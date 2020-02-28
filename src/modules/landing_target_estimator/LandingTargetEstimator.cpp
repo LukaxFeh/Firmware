@@ -167,7 +167,6 @@ void LandingTargetEstimator::update()
 
 		if (!_faulty) {
 			// only publish if both measurements were good
-
 			_target_pose.timestamp = _irlockReport.timestamp;
 
 			float x, xvel, y, yvel, covx, covx_v, covy, covy_v;
@@ -259,7 +258,5 @@ void LandingTargetEstimator::_update_params()
 
 	param_get(_paramHandle.scale_x, &_params.scale_x);
 	param_get(_paramHandle.scale_y, &_params.scale_y);
-}
-
-
+	}
 } // namespace landing_target_estimator

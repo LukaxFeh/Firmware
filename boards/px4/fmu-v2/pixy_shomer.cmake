@@ -3,7 +3,7 @@ px4_add_board(
 	PLATFORM nuttx
 	VENDOR px4
 	MODEL fmu-v2
-	LABEL multicopter
+	LABEL pixy_shomer
 	TOOLCHAIN arm-none-eabi
 	ARCHITECTURE cortex-m4
 	ROMFSROOT px4fmu_common
@@ -22,17 +22,18 @@ px4_add_board(
 	DRIVERS
 		adc
 		barometer/ms5611
-		#batt_smbus
-		#camera_capture
-		#camera_trigger
+		#batt_smbus # battery display
+		#camera_capture # geotagging from camera feedback
+		#camera_trigger # camera manipulation using PWM signals over FMU auxillary pins.
 		#distance_sensor # all available distance sensor drivers
+		#differential_pressure/ms4525
 		distance_sensor/vl53lxx
 		gps
 		imu/l3gd20
 		imu/lsm303d
 		imu/mpu6000
 		#imu/mpu9250
-		#irlock
+		irlock
 		lights/rgbled
 		magnetometer/hmc5883
 		#optical_flow/px4flow
@@ -40,13 +41,14 @@ px4_add_board(
 		px4io
 		tone_alarm
 
-	MODULES
-		#attitude_estimator_q
+	MODULES	
+		airspeed_selector
+		battery_status
 		#camera_feedback
 		commander
 		dataman
 		ekf2
-		events
+		#events
 		land_detector
 		landing_target_estimator
 		load_mon
@@ -56,7 +58,6 @@ px4_add_board(
 		mc_att_control
 		mc_pos_control
 		navigator
-		battery_status
 		sensors
 		vmount
 
@@ -66,11 +67,11 @@ px4_add_board(
 		#dumpfile
 		#esc_calib
 		hardfault_log
-		i2cdetect
+		#i2cdetect
 		#led_control
 		mixer
 		#motor_ramp
-		#motor_test
+		#motor_test #debug
 		mtd
 		nshterm
 		param
@@ -79,10 +80,9 @@ px4_add_board(
 		reboot
 		#sd_bench
 		top
-		topic_listener
-		#tune_control
-		usb_connected
+		#topic_listener #debug
+		tune_control
+		#usb_connected
 		ver
-		#work_queue
-
+		work_queue
 	)

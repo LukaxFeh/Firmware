@@ -3,7 +3,7 @@ px4_add_board(
 	PLATFORM nuttx
 	VENDOR px4
 	MODEL fmu-v2
-	LABEL multicopter
+	LABEL shomer
 	TOOLCHAIN arm-none-eabi
 	ARCHITECTURE cortex-m4
 	ROMFSROOT px4fmu_common
@@ -22,11 +22,11 @@ px4_add_board(
 	DRIVERS
 		adc
 		barometer/ms5611
-		#batt_smbus
-		#camera_capture
-		#camera_trigger
+		#batt_smbus # battery display
+		#camera_capture # geotagging from camera feedback
+		#camera_trigger # camera manipulation using PWM signals over FMU auxillary pins.
 		#distance_sensor # all available distance sensor drivers
-		distance_sensor/vl53lxx
+		distance_sensor/ll40ls
 		gps
 		imu/l3gd20
 		imu/lsm303d
@@ -41,14 +41,14 @@ px4_add_board(
 		tone_alarm
 
 	MODULES
-		#attitude_estimator_q
+			
 		#camera_feedback
 		commander
 		dataman
 		ekf2
 		events
 		land_detector
-		landing_target_estimator
+		#landing_target_estimator
 		load_mon
 		#local_position_estimator
 		logger
@@ -70,7 +70,7 @@ px4_add_board(
 		#led_control
 		mixer
 		#motor_ramp
-		#motor_test
+		motor_test
 		mtd
 		nshterm
 		param
@@ -80,7 +80,7 @@ px4_add_board(
 		#sd_bench
 		top
 		topic_listener
-		#tune_control
+		tune_control
 		usb_connected
 		ver
 		#work_queue

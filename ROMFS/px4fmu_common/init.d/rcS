@@ -509,6 +509,9 @@ else
 #
 # End of autostart.
 #
+vl53lxx start
+irlock start
+landing_target_estimator start
 fi
 
 #

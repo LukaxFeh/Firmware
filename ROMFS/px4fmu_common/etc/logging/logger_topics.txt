@@ -1,0 +1,2 @@
+landing_target_pose, 1
+vehicle_local_position, 1

@@ -293,6 +293,7 @@ RingBuffer::get(void *val, size_t val_size)
 	}
 }
 
+
 bool
 RingBuffer::get(int8_t &val)
 {
